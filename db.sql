@@ -1,7 +1,7 @@
 CREATE TABLE program
 (
     program_id VARCHAR(10) PRIMARY KEY,
-    name       VARCHAR(50)
+    name       VARCHAR(50) NOT NULL
 );
 
 
@@ -20,7 +20,7 @@ CREATE TABLE batch
 CREATE TABLE enrollment
 (
     student_id      VARCHAR(10) NOT NULL,
-    batch_id    VARCHAR(10) NOT NULL,
+    batch_id        VARCHAR(10) NOT NULL,
     registered_date DATE        NOT NULL,
     CONSTRAINT pk_enrollment PRIMARY KEY (student_id, batch_id),
     CONSTRAINT fk_enroll_student FOREIGN KEY (student_id) REFERENCES student (id),
@@ -32,15 +32,15 @@ CREATE TABLE module
     id         VARCHAR(10) PRIMARY KEY,
     name       VARCHAR(255) NOT NULL,
     credits    INT          NOT NULL,
-    program_id VARCHAR(10),
+    program_id VARCHAR(10)  NOT NULL,
     FOREIGN KEY (program_id) REFERENCES program (program_id)
 );
 
 CREATE TABLE exam
 (
     exam_code     VARCHAR(10) PRIMARY KEY,
-    module_id     VARCHAR(10),
-    passing_score INT NOT NULL,
+    module_id     VARCHAR(10) NOT NULL,
+    passing_score INT         NOT NULL,
     FOREIGN KEY (module_id) REFERENCES module (id)
 );
 
@@ -140,3 +140,10 @@ VALUES ('E001', 'M001', 50),
        ('E008', 'M004', 80),
        ('E009', 'M001', 50),
        ('E010', 'M002', 60);
+
+CREATE TABLE program_module
+(
+    program_id VARCHAR(10) REFERENCES program (program_id),
+    module_id  VARCHAR(10) REFERENCES module (id),
+    CONSTRAINT pk_program_module PRIMARY KEY (program_id, module_id)
+);
