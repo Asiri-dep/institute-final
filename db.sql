@@ -13,7 +13,7 @@ VALUES ('P001', 'CMJD'),
 
 CREATE TABLE Module
 (
-    id         VARCHAR(10) INT PRIMARY KEY,
+    id         VARCHAR(10)  PRIMARY KEY,
     name       VARCHAR(255) NOT NULL,
     credits    INT          NOT NULL,
     program_id VARCHAR(10),
@@ -30,11 +30,38 @@ CREATE TABLE batch
     program_id VARCHAR(10) NOT NULL REFERENCES program (id)
 );
 -- Insert sample data into the Module table
+-- Insert sample data into the Module table
 INSERT INTO Module (id, name, credits, program_id) VALUES
                                                        ('M001', 'Introduction to Programming', 3, 'P001'),
                                                        ('M002', 'Data Structures', 3, 'P001'),
-                                                       ('M003', 'Web Development', 4, 'P002'),
-                                                       ('M004', 'Database Systems', 3, 'P002');
+                                                       ('M003', 'Algorithms', 4, 'P001'),
+                                                       ('M004', 'Operating Systems', 3, 'P001'),
+                                                       ('M005', 'Computer Networks', 3, 'P001'),
+                                                       ('M006', 'Software Engineering', 3, 'P001'),
+                                                       ('M007', 'Artificial Intelligence', 4, 'P001'),
+                                                       ('M008', 'Machine Learning', 4, 'P001'),
+                                                       ('M009', 'Database Systems', 3, 'P001'),
+                                                       ('M010', 'Compiler Design', 4, 'P001'),
+                                                       ('M011', 'Web Development', 3, 'P002'),
+                                                       ('M012', 'Mobile App Development', 3, 'P002'),
+                                                       ('M013', 'Information Security', 3, 'P002'),
+                                                       ('M014', 'Cloud Computing', 4, 'P002'),
+                                                       ('M015', 'Big Data Analytics', 4, 'P002'),
+                                                       ('M016', 'Digital Forensics', 3, 'P002'),
+                                                       ('M017', 'IT Project Management', 3, 'P002'),
+                                                       ('M018', 'Cyber Law', 3, 'P002'),
+                                                       ('M019', 'Network Security', 3, 'P002'),
+                                                       ('M020', 'System Administration', 3, 'P002'),
+                                                       ('M021', 'Human-Computer Interaction', 3, 'P001'),
+                                                       ('M022', 'Software Testing', 3, 'P001'),
+                                                       ('M023', 'Parallel Computing', 4, 'P001'),
+                                                       ('M024', 'Distributed Systems', 4, 'P001'),
+                                                       ('M025', 'Data Mining', 3, 'P001'),
+                                                       ('M026', 'Natural Language Processing', 4, 'P001'),
+                                                       ('M027', 'Quantum Computing', 4, 'P001'),
+                                                       ('M028', 'Virtual Reality', 3, 'P002'),
+                                                       ('M029', 'Augmented Reality', 3, 'P002'),
+                                                       ('M030', 'Internet of Things', 4, 'P002')
 
 INSERT INTO student (id, name) VALUES ('S001', 'Kasun Sampath'),
                                       ('S002', 'Namal Rajapaksha'),
@@ -54,3 +81,10 @@ INSERT INTO batch (number,program_id) VALUES
                                           ("B004","P002"),
                                           ("B005","P002"),
                                           ("B006","P003");
+-- Create Exam table
+CREATE TABLE Exam (
+                      exam_code INT PRIMARY KEY,
+                      module_id INT,
+                      passing_score INT NOT NULL,
+                      FOREIGN KEY (module_id) REFERENCES Module(id)
+);
