@@ -35,6 +35,10 @@ INSERT INTO Module (id, name, credits, program_id) VALUES
                                                        ('M003', 'Web Development', 4, 'P002'),
                                                        ('M004', 'Database Systems', 3, 'P002');
 
+                                                       ('M002', 'Data Structures', 3, 'P001'),
+                                                       ('M003', 'Web Development', 4, 'P002'),
+                                                       ('M004', 'Database Systems', 3, 'P002');
+
 INSERT INTO batch (number, program_id)
 VALUES ("B001", "P001"),
        ("B002", "P001"),
@@ -104,7 +108,7 @@ VALUES
     ('S009', 'B001', 'E001', 89),
     ('S010', 'B002', 'E002', 71)
 ;
-INSERT INTO enrollment (student_id, batch_id, registered_date) VALUES
+INSERT INTO enrollment (student_id, batch_number, registered_date) VALUES
                                                                     ('S001', 'B001', '2024-01-10'),
                                                                     ('S002', 'B001', '2024-01-11'),
                                                                     ('S003', 'B001', '2024-01-12'),
