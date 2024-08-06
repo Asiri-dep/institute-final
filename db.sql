@@ -1,7 +1,7 @@
 CREATE TABLE program
 (
     program_id VARCHAR(10) PRIMARY KEY,
-    name       VARCHAR(50)
+    name       VARCHAR(50) NOT NULL
 );
 
 
@@ -32,14 +32,14 @@ CREATE TABLE module
     id         VARCHAR(10) PRIMARY KEY,
     name       VARCHAR(255) NOT NULL,
     credits    INT          NOT NULL,
-    program_id VARCHAR(10),
+    program_id VARCHAR(10) NOT NULL ,
     FOREIGN KEY (program_id) REFERENCES program (program_id)
 );
 
 CREATE TABLE exam
 (
     exam_code     VARCHAR(10) PRIMARY KEY,
-    module_id     VARCHAR(10),
+    module_id     VARCHAR(10) NOT NULL ,
     passing_score INT NOT NULL,
     FOREIGN KEY (module_id) REFERENCES module (id)
 );
