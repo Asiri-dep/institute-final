@@ -15,3 +15,9 @@ CREATE TABLE batch
     number     VARCHAR(10) PRIMARY KEY,
     program_id VARCHAR(10) NOT NULL REFERENCES program (id)
 );
+-- Insert sample data into the Module table
+INSERT INTO Module (id, name, credits, program_id) VALUES
+                                                       ('M001', 'Introduction to Programming', 3, 'P001'),
+                                                       ('M002', 'Data Structures', 3, 'P001'),
+                                                       ('M003', 'Web Development', 4, 'P002'),
+                                                       ('M004', 'Database Systems', 3, 'P002');
