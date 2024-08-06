@@ -29,11 +29,11 @@ CREATE TABLE batch
     program_id VARCHAR(10) NOT NULL REFERENCES program (id)
 );
 -- Insert sample data into the Module table
-INSERT INTO Module (id, name, credits, program_id)
-VALUES ('M001', 'Introduction to Programming', 3, 'P001'),
-       ('M002', 'Data Structures', 3, 'P001'),
-       ('M003', 'Web Development', 4, 'P002'),
-       ('M004', 'Database Systems', 3, 'P002');
+INSERT INTO Module (id, name, credits, program_id) VALUES
+                                                       ('M001', 'Introduction to Programming', 3, 'P001'),
+                                                       ('M002', 'Data Structures', 3, 'P001'),
+                                                       ('M003', 'Web Development', 4, 'P002'),
+                                                       ('M004', 'Database Systems', 3, 'P002');
 
 INSERT INTO batch (number, program_id)
 VALUES ("B001", "P001"),
@@ -63,25 +63,14 @@ VALUES ('S001', 'Kasun Sampath'),
        ('S008', 'Kiri Saman'),
        ('S009', 'Mia Kalifa'),
        ('S010', 'Johnny sins');
-INSERT INTO student (id, name)
-VALUES ('S001', 'Kasun Sampath'),
-       ('S002', 'Namal Rajapaksha'),
-       ('S003', 'Ranil Wikramasinghe'),
-       ('S004', 'Anura Kumara'),
-       ('S005', 'Sajith Premadasa'),
-       ('S006', 'Sunil Shantha'),
-       ('S007', 'Saman Lenin'),
-       ('S008', 'Kiri Saman'),
-       ('S009', 'Mia Kalifa'),
-       ('S010', 'Johnny sins');
 
-INSERT INTO batch (number, program_id)
-VALUES ("B001", "P001"),
-       ("B002", "P001"),
-       ("B003", "P002"),
-       ("B004", "P002"),
-       ("B005", "P002"),
-       ("B006", "P003");
+-- Create Exam table
+CREATE TABLE Exam (
+                      exam_code INT PRIMARY KEY,
+                      module_id INT,
+                      passing_score INT NOT NULL,
+                      FOREIGN KEY (module_id) REFERENCES Module(id)
+);
 
 CREATE TABLE student_exam
 (
@@ -115,3 +104,15 @@ VALUES
     ('S009', 'B001', 'E001', 89),
     ('S010', 'B002', 'E002', 71)
 ;
+-- Insert sample data into the Exam table
+INSERT INTO Exam (exam_code, module_id, passing_score) VALUES
+                                                           (1001, 'M001', 50),
+                                                           (1002, 'M002', 55),
+                                                           (1003, 'M003', 60),
+                                                           (1004, 'M004', 50),
+                                                           (1005, 'M005', 65),
+                                                           (1006, 'M006', 70),
+                                                           (1007, 'M007', 75),
+                                                           (1008, 'M008', 80),
+                                                           (1009, 'M009', 50),
+                                                           (1010, 'M010', 60);
