@@ -131,3 +131,15 @@ CREATE TABLE student_exam
     marks      INT,
     CONSTRAINT pk_student_exam PRIMARY KEY (student_id, exam_code)
 );
+-- Insert sample data into the Exam table
+INSERT INTO Exam (exam_code, module_id, passing_score) VALUES
+                                                           (1001, 'M001', 50),
+                                                           (1002, 'M002', 55),
+                                                           (1003, 'M003', 60),
+                                                           (1004, 'M004', 50),
+                                                           (1005, 'M005', 65),
+                                                           (1006, 'M006', 70),
+                                                           (1007, 'M007', 75),
+                                                           (1008, 'M008', 80),
+                                                           (1009, 'M009', 50),
+                                                           (1010, 'M010', 60);
