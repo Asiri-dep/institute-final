@@ -1,3 +1,6 @@
+
+CREATE DATABASE if not exists institute_db;
+
 CREATE TABLE program
 (
     program_id VARCHAR(10) PRIMARY KEY,

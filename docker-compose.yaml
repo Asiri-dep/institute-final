@@ -1,10 +1,14 @@
+version: '3.8'
+
 services:
-  container:
+  mysql:
+    image: mysql:latest
+    container_name: institute_container
     environment:
       MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: institute_db
     ports:
       - 15000:3306
-    container_name: institute_container
     volumes:
       - ~/project:/var/lib/mysql
-    image: mysql
+      - ./db_script.sql:/docker-entrypoint-initdb.d/db.sql
