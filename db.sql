@@ -26,3 +26,14 @@ CREATE TABLE batch
     number     VARCHAR(10) PRIMARY KEY,
     program_id VARCHAR(10) NOT NULL REFERENCES program (id)
 );
+
+INSERT INTO student (id, name) VALUES ('S001', 'Kasun Sampath'),
+                                      ('S002', 'Namal Rajapaksha'),
+                                      ('S003', 'Ranil Wikramasinghe'),
+                                      ('S004', 'Anura Kumara'),
+                                      ('S005', 'Sajith Premadasa'),
+                                      ('S006', 'Sunil Shantha'),
+                                      ('S007', 'Saman Lenin'),
+                                      ('S008', 'Kiri Saman'),
+                                      ('S009', 'Mia Kalifa'),
+                                      ('S010', 'Johnny sins');
