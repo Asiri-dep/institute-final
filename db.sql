@@ -6,6 +6,10 @@ CREATE TABLE Module (
                         program_id VARCHAR(10) ,
                         FOREIGN KEY (program_id) REFERENCES Program(id)
                     );
+CREATE TABLE student (
+  id VARCHAR(10) PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
+);
 CREATE TABLE batch
 (
     number     VARCHAR(10) PRIMARY KEY,
